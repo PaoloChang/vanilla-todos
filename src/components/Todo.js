@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { actionCreators } from '../store';
+/** without redux-toolkit: use actionCreator  */
+// import { actionCreators } from '../store';
+/** with redux-toolkit: use new function defined in store */
+import { remove } from '../store';
 import { Link } from 'react-router-dom';
 
 const Todo = ({ text, onBtnClick, id }) => {
@@ -18,7 +21,8 @@ function mapDispatchToProps(dispatch, ownProps) {
     console.log('Todo.js / mapDispatchToProps(dispatch, ownProps)')
     console.log(ownProps)
     return { 
-        onBtnClick: () => dispatch(actionCreators.deleteTodo(ownProps.id))
+        // onBtnClick: () => dispatch(actionCreators.deleteTodo(ownProps.id))
+        onBtnClick: () => dispatch(remove(ownProps.id))
     }
 }
 

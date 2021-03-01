@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { actionCreators } from '../store';
+/** without redux-toolkit: use actionCreator  */
+// import { actionCreators } from '../store';
+/** with redux-toolkit: use new function defined in store */
+import { add } from '../store';
 import Todo from '../components/Todo';
 
 function Home({ todos, dispatch, addTodo }) {
@@ -40,7 +43,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
     return {
-        addTodo: text => dispatch(actionCreators.addTodo(text))
+        // addTodo: text => dispatch(actionCreators.addTodo(text))
+        addTodo: text => dispatch(add(text))
     };
 }
 

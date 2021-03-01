@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-import { actionCreators } from '../store';
-
-
+/** without redux-toolkit: use actionCreator  */
+// import { actionCreators } from '../store';
+/** with redux-toolkit: use new function defined in store */
+import { remove } from '../store';
 
 const Detail = ({ todo, removeTodo }) => {
     // const id = useParams();
@@ -47,7 +48,8 @@ function mapDispatchToProps(dispatch, ownProps) {
         } 
     } = ownProps;
     return { 
-        removeTodo: () => dispatch(actionCreators.deleteTodo(id))
+        // removeTodo: () => dispatch(actionCreators.deleteTodo(parseInt(id)))
+        removeTodo: () => dispatch(remove(parseInt(id)))
     }
 }
 
