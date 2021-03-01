@@ -1,4 +1,3 @@
 # Vanilla todos
 
-Todo example with vanilla-redux, then react-redux
-Extra challenge: use localStorage & remove todo in detail component
+Todo example with vanilla-redux, then react-redux (extra challenge: use localStorage & remove todo in detail component)
